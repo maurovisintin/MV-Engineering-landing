@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== NOISE OVERLAY ===== */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+}
+
+/* ===== GLOBAL RESETS ===== */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #F5F3EE;
+  color: #111111;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+::selection {
+  background-color: #E63B2E;
+  color: #F5F3EE;
+}
+
+/* ===== MAGNETIC BUTTON ===== */
+.btn-magnetic {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: none;
+  text-decoration: none;
+}
+
+.btn-magnetic:hover {
+  transform: scale(1.03);
+}
+
+.btn-magnetic:active {
+  transform: scale(0.98);
+}
+
+.btn-magnetic .btn-bg {
+  position: absolute;
+  inset: 0;
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: inherit;
+}
+
+.btn-magnetic:hover .btn-bg {
+  transform: translateY(0);
+}
+
+.btn-magnetic .btn-label {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary {
+  background-color: #E63B2E;
+  color: #F5F3EE;
+}
+
+.btn-primary .btn-bg {
+  background-color: #111111;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #111111;
+  border: 1.5px solid #111111;
+}
+
+.btn-outline .btn-bg {
+  background-color: #111111;
+}
+
+.btn-outline:hover {
+  color: #F5F3EE;
+}
+
+/* ===== LINK HOVER LIFT ===== */
+.link-lift {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              color 0.3s ease;
+}
+
+.link-lift:hover {
+  transform: translateY(-1px);
+  color: #E63B2E;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F3EE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E8E4DD;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #111111;
+}
+
+/* ===== TYPEWRITER CURSOR ===== */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+/* ===== PULSING DOT ===== */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
